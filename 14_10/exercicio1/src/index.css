@@ -1,0 +1,388 @@
+/* ==================================== */
+/* 1. RESET E VARIAVEIS GLOBAIS         */
+/* ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #020202;
+    --cor-texto-claro: #f0f0f0;
+    --cor-destaque: #e50914; /* Vermelho/Sangue */
+    --cor-secundaria: #303030;
+    --cor-sombra: rgba(0, 0, 0, 0.7);
+    --font-titulo: 'Metal Mania', cursive;
+    --font-corpo: 'Roboto', sans-serif;
+    --largura-filme: 220px;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-claro);
+    font-family: var(--font-corpo);
+    line-height: 1.6;
+    padding-top: 80px; /* Espaço para o header fixo */
+}
+
+a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+    color: var(--cor-destaque);
+    text-shadow: 0 0 5px var(--cor-destaque);
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================================== */
+/* 2. HEADER E NAVEGAÇÃO                */
+/* ==================================== */
+.site-header {
+    background-color: var(--cor-fundo);
+    border-bottom: 2px solid var(--cor-secundaria);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 5px 15px var(--cor-sombra);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: var(--font-titulo);
+    font-size: 2.2em;
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--cor-destaque);
+}
+
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form input {
+    padding: 8px 12px;
+    border: 1px solid var(--cor-destaque);
+    background-color: transparent;
+    color: var(--cor-texto-claro);
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-form button {
+    padding: 8px 15px;
+    background-color: var(--cor-destaque);
+    border: none;
+    color: var(--cor-fundo);
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #ff3344;
+}
+
+/* ==================================== */
+/* 3. HERO (DESTAQUE)                   */
+/* ==================================== */
+.hero-section {
+    /* Imagem de fundo ajustável */
+    background: url('https://via.placeholder.com/1500x700/000000/FFFFFF?text=DESTAQUE+RITUAL+SOMBRIO') center center/cover no-repeat;
+    height: 80vh;
+    max-height: 900px;
+    margin-bottom: 40px;
+}
+
+.hero-overlay {
+    background: linear-gradient(to right, rgba(2, 2, 2, 0.9) 30%, rgba(2, 2, 2, 0) 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 500px;
+    padding-left: 50px; /* Empurra o conteúdo para a direita */
+}
+
+.hero-content h2 {
+    font-family: var(--font-titulo);
+    font-size: 4em;
+    text-shadow: 0 0 15px var(--cor-destaque);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    margin-right: 15px;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--cor-destaque);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    transform: scale(1.05);
+}
+
+/* ==================================== */
+/* 4. CARROSSEL DE CONTEÚDO             */
+/* ==================================== */
+.content-carrossel {
+    padding: 40px 0;
+}
+
+.content-carrossel h2 {
+    font-size: 2.5em;
+    color: var(--cor-destaque);
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.carrossel-list {
+    display: flex;
+    overflow-x: scroll; /* Habilita o scroll horizontal */
+    gap: 20px;
+    padding: 10px 20px 20px;
+    /* Custom scrollbar para um toque mais dark (Webkit) */
+    scrollbar-color: var(--cor-destaque) var(--cor-secundaria); 
+    scrollbar-width: thin;
+}
+
+.carrossel-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carrossel-list::-webkit-scrollbar-thumb {
+    background: var(--cor-destaque);
+    border-radius: 10px;
+}
+
+.carrossel-list::-webkit-scrollbar-track {
+    background: var(--cor-secundaria);
+}
+
+/* Estilo do Card de Filme (ARTICLE) */
+.movie-card {
+    min-width: var(--largura-filme);
+    max-width: var(--largura-filme);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+}
+
+.movie-card img {
+    width: 100%;
+    height: calc(var(--largura-filme) * 1.5); /* Proporção de pôster 2:3 */
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cor-secundaria);
+    transition: border-color 0.3s;
+}
+
+.movie-card:hover img {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.5); /* Efeito de glow */
+}
+
+.movie-card figcaption {
+    text-align: center;
+    margin: 10px 0 5px;
+    font-weight: 700;
+}
+
+.movie-meta {
+    text-align: center;
+    font-size: 0.9em;
+    color: #999;
+}
+
+
+/* ==================================== */
+/* 5. GÊNEROS (CATEGORIAS)              */
+/* ==================================== */
+.genres-section {
+    background-color: #0d0d0d;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.genres-section h2 {
+    font-size: 2em;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.genre-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.genre-list li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: var(--cor-secundaria);
+    border-radius: 30px;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.genre-list li a:hover {
+    background-color: var(--cor-fundo);
+    border-color: var(--cor-destaque);
+    color: var(--cor-destaque);
+    text-shadow: none;
+}
+
+/* ==================================== */
+/* 6. FOOTER                            */
+/* ==================================== */
+.site-footer {
+    background-color: #000000;
+    color: #666;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+.site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-footer nav a {
+    color: #666;
+    margin-left: 20px;
+}
+
+.site-footer nav a:hover {
+    color: var(--cor-destaque);
+    text-shadow: none;
+}
+
+/* ==================================== */
+/* 7. RESPONSIVIDADE (Mobile First)     */
+/* ==================================== */
+
+/* Ajustes para telas maiores (a partir de 1024px) */
+@media (min-width: 1024px) {
+    .header-content {
+        padding: 15px 0;
+    }
+}
+
+/* Ajustes para Telas Menores (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+    
+    .site-header {
+        position: static;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.8em;
+    }
+
+    .site-header nav ul {
+        gap: 15px;
+    }
+    
+    .hero-section {
+        height: 60vh;
+    }
+
+    .hero-overlay {
+         /* Gradiente mais forte em mobile */
+        background: linear-gradient(to top, rgba(2, 2, 2, 0.95) 0%, rgba(2, 2, 2, 0.6) 100%);
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .hero-content h2 {
+        font-size: 3em;
+    }
+    
+    .hero-actions {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .site-footer .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .site-footer nav a {
+        margin: 0 10px;
+    }
+}
