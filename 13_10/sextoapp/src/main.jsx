@@ -1,10 +1,9 @@
-import { StrictMode } from 'react'
+
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+
+const numeros = [1, 2, 3, 4]
+const double = numeros.map(x => x * 2 + " ")
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  double
 )

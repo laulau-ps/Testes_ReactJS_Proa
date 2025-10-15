@@ -1,10 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const meuArray = ['apple', 'banana', 'orange']
+
+const minhaLista = meuArray.map((item) => <p>{item}</p>)
+
+const container = document.getElementById('root')
+const root = ReactDOM.createRoot(container)
+
+root.render(minhaLista)

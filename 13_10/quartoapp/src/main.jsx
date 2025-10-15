@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+
+const variavelTeste = (
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+  <tr>
+    <th>Jão</th>
+  </tr>
+  <tr>
+    <th>Eugenia</th>
+  </tr>
+</table>
+)
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  variavelTeste
 )
