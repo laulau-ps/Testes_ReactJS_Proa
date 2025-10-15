@@ -1,0 +1,16 @@
+:root {
+    --cor-fundo: #020202;
+    --cor-texto-claro: #f0f0f0;
+    --cor-destaque: #e50914; /* Vermelho/Sangue */
+    --cor-secundaria: #303030;
+    --cor-sombra: rgba(0, 0, 0, 0.7);
+    --font-titulo: 'Metal Mania', cursive;
+    --font-corpo: 'Roboto', sans-serif;
+    --largura-filme: 220px;
+}
+
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}

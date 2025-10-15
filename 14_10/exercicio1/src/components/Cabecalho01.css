@@ -1,0 +1,36 @@
+:root {
+    --cor-fundo: #020202;
+    --cor-texto-claro: #f0f0f0;
+    --cor-destaque: #e50914; /* Vermelho/Sangue */
+    --cor-secundaria: #303030;
+    --cor-sombra: rgba(0, 0, 0, 0.7);
+    --font-titulo: 'Metal Mania', cursive;
+    --font-corpo: 'Roboto', sans-serif;
+    --largura-filme: 220px;
+}
+
+.site-header {
+    background-color: var(--cor-fundo);
+    border-bottom: 2px solid var(--cor-secundaria);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 5px 15px var(--cor-sombra);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: var(--font-titulo);
+    font-size: 2.2em;
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--cor-destaque);
+}
