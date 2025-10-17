@@ -1,10 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const veiculos = ['mustang', 'f-150', 'expedition']
+
+const [carro, caminhao, suv] = veiculos
+
+document.getElementById('root').innerHTML = "Desestruturação de matrizes: " + carro + caminhao + suv
